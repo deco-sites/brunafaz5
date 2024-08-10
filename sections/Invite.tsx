@@ -75,6 +75,9 @@ function Confetti() {
       <script
         dangerouslySetInnerHTML={{
           __html: `
+document.getElementById('happy').play();
+document.getElementById('playful').play();
+
 var duration = 30 * 1000;
 var animationEnd = Date.now() + duration;
 var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -181,14 +184,14 @@ export default function RobloxInvite({
               </div>
             </div>
           </div>
-          <audio autoplay loop>
+          <audio loop id="playful">
             <source
               src={asset("/playful.mp3")}
               type="audio/mpeg"
             >
             </source>
           </audio>
-          <audio autoplay>
+          <audio id="happy">
             <source
               src={asset("/happy.mp3")}
               type="audio/mpeg"
