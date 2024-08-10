@@ -1,42 +1,21 @@
 {
-    "name": "Home",
-    "path": "/",
-    "sections": [
-      {
-        "__resolveType": "Header"
-      },
-      {
-        "__resolveType": "site/sections/Hero.tsx",
-        "title": "<p>Click here to tweak this text however you want.</p>",
-        "cta": [],
-        "description": "This text is fully editable and ready for your personal touch. Just click here, head over to the section window, or dive straight into the code to make changes as you see fit. Whether it's about the content, formatting, font, or anything in between, editing is just a click away."
-      },
-      {
-        "__resolveType": "site/sections/Logos.tsx"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx"
-      },
-      {
-        "__resolveType": "site/sections/ImageWithParagraph.tsx",
-        "placement": "right"
-      },
-      {
-        "__resolveType": "site/sections/BlogPosts.tsx"
-      },
-      {
-        "__resolveType": "site/sections/Testimonials.tsx",
-        "arrows": true
-      },
-      {
-        "__resolveType": "site/sections/Faq.tsx"
-      },
-      {
-        "__resolveType": "Footer"
-      }
-    ],
-    "__resolveType": "website/pages/Page.tsx",
-    "seo": {
-      "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  "name": "Home",
+  "path": "/",
+  "sections": [
+    {
+      "__resolveType": "site/sections/Invite.tsx",
+      "backgroundImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/e4f88360-f95c-4f73-90d3-57482740615a",
+      "coverImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/83d1e47c-2075-4d8b-a3d5-226b03c73223",
+      "name": "Bruna",
+      "age": 5,
+      "googleMapsLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu",
+      "location": "Av. Gov. Flávio Ribeiro Coutinho, 121 - PB, 58036-800",
+      "dateTime": "12/10/2024 17:30",
+      "content": "<p>Bruna faz 5!</p>"
     }
+  ],
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
   }
+}
