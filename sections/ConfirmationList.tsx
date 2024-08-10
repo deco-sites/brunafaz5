@@ -3,7 +3,11 @@ import { SectionProps } from "deco/mod.ts";
 import { AppContext } from "site/apps/site.ts";
 
 export const loader = async (
-  { toggle, accepted }: { toggle?: string; accepted?: boolean },
+  { toggle, accepted, remove }: {
+    remove?: string;
+    toggle?: string;
+    accepted?: boolean;
+  },
   _req: Request,
   ctx: AppContext,
 ) => {
@@ -11,6 +15,9 @@ export const loader = async (
     accepted
       ? await ctx.invoke.site.actions.invites.confirm({ code: toggle })
       : await ctx.invoke.site.actions.invites.unconfirm({ code: toggle });
+  }
+  if (remove) {
+    await ctx.invoke.site.actions.invites.uninvite({ code: remove });
   }
   return {
     confirmations: await ctx.invoke.site.loaders.invites.list(),
@@ -39,8 +46,9 @@ export default function Section(
           <table class="table w-full">
             <thead>
               <tr>
-                <th>Nome</th>
+                <th>Código</th>
                 <th>Confirmado</th>
+                <th>Desconvidar</th>
               </tr>
             </thead>
             <tbody>
@@ -62,6 +70,20 @@ export default function Section(
                         },
                       })}
                     />
+                  </td>
+                  <td>
+                    <a
+                      class="btn btn-primary"
+                      hx-swap="outerHTML"
+                      hx-target="closest section"
+                      hx-post={useSection({
+                        props: {
+                          remove: confirmation.code,
+                        },
+                      })}
+                    >
+                      &#10006;
+                    </a>
                   </td>
                 </tr>
               ))}

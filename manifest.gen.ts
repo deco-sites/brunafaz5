@@ -5,6 +5,7 @@
 import * as $$$$$$$$$0 from "./actions/invites/confirm.ts";
 import * as $$$$$$$$$1 from "./actions/invites/new.ts";
 import * as $$$$$$$$$2 from "./actions/invites/unconfirm.ts";
+import * as $$$$$$$$$3 from "./actions/invites/uninvite.ts";
 import * as $$$$$$$$$$$0 from "./apps/deco/blog.ts";
 import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
 import * as $$$$$$$$$$$2 from "./apps/site.ts";
@@ -48,6 +49,7 @@ const manifest = {
     "site/actions/invites/confirm.ts": $$$$$$$$$0,
     "site/actions/invites/new.ts": $$$$$$$$$1,
     "site/actions/invites/unconfirm.ts": $$$$$$$$$2,
+    "site/actions/invites/uninvite.ts": $$$$$$$$$3,
   },
   "apps": {
     "site/apps/deco/blog.ts": $$$$$$$$$$$0,
