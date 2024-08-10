@@ -4,8 +4,9 @@
 
 import * as $$$$$$$$$0 from "./actions/invites/confirm.ts";
 import * as $$$$$$$$$1 from "./actions/invites/new.ts";
-import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
-import * as $$$$$$$$$$$1 from "./apps/site.ts";
+import * as $$$$$$$$$$$0 from "./apps/deco/blog.ts";
+import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
+import * as $$$$$$$$$$$2 from "./apps/site.ts";
 import * as $$$0 from "./loaders/invites/list.ts";
 import * as $$$$$$0 from "./sections/BlogPosts.tsx";
 import * as $$$$$$1 from "./sections/ConfirmationList.tsx";
@@ -47,8 +48,9 @@ const manifest = {
     "site/actions/invites/new.ts": $$$$$$$$$1,
   },
   "apps": {
-    "site/apps/decohub.ts": $$$$$$$$$$$0,
-    "site/apps/site.ts": $$$$$$$$$$$1,
+    "site/apps/deco/blog.ts": $$$$$$$$$$$0,
+    "site/apps/deco/htmx.ts": $$$$$$$$$$$1,
+    "site/apps/site.ts": $$$$$$$$$$$2,
   },
   "name": "site",
   "baseUrl": import.meta.url,
