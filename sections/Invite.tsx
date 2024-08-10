@@ -1,6 +1,13 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
+import { useSection } from "deco/hooks/useSection.ts";
+import { SectionProps } from "deco/mod.ts";
 import { asset } from "https://deno.land/x/fresh@1.6.8/runtime.ts";
+import { AppContext } from "site/apps/site.ts";
 interface Props {
+  /**
+   * @hide true
+   */
+  confirm?: boolean;
   /**
    * @description Background image for the entire site
    */
@@ -58,6 +65,24 @@ interface Props {
    */
   accentColor?: string;
 }
+
+export const loader = async (
+  props: Props,
+  req: Request,
+  ctx: AppContext,
+): Promise<Props & { code?: string | null; confirmed: boolean }> => {
+  const code = new URL(req.url).searchParams.get("code");
+  if (props.confirm && code) {
+    await ctx.invoke.site.actions.invites.confirm({ code });
+  }
+  if (!code) {
+    return { ...props, confirmed: false };
+  }
+  const list = await ctx.invoke.site.loaders.invites.list();
+  const confirmed = list[code] === true;
+  return { ...props, code, confirmed };
+};
+
 export default function RobloxInvite({
   backgroundImage =
     "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/6fe9404a-f69c-472a-b521-78f6c1f87326",
@@ -75,7 +100,9 @@ export default function RobloxInvite({
   primaryColor = "#FF4040",
   secondaryColor = "#00A2FF",
   accentColor = "#00FF7F",
-}: Props) {
+  code,
+  confirmed,
+}: SectionProps<typeof loader>) {
   return (
     <>
       <style
@@ -151,6 +178,17 @@ export default function RobloxInvite({
             <p style={{ color: accentColor }} class="text-xl">
               Esperamos você!
             </p>
+            {code && !confirmed && (
+              <button
+                class="btn btn-primary"
+                hx-post={useSection({ props: { confirm: true } })}
+                hx-swap="outerHTML"
+                hx-target="closest section"
+              >
+                Confirmar presença!
+              </button>
+            )}
+            {confirmed && <span>Presença confirmada!</span>}
           </div>
         </div>
       </div>
