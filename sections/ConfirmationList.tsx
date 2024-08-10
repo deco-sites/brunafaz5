@@ -1,14 +1,17 @@
+import { useSection } from "deco/hooks/useSection.ts";
 import { SectionProps } from "deco/mod.ts";
 import { AppContext } from "site/apps/site.ts";
 
-interface Props {
-  /**
-   * @description The description of name.
-   */
-  name?: string;
-}
-
-export const loader = async (_: unknown, _req: Request, ctx: AppContext) => {
+export const loader = async (
+  { toggle, accepted }: { toggle?: string; accepted?: boolean },
+  _req: Request,
+  ctx: AppContext,
+) => {
+  if (toggle) {
+    accepted
+      ? await ctx.invoke.site.actions.invites.confirm({ code: toggle })
+      : await ctx.invoke.site.actions.invites.unconfirm({ code: toggle });
+  }
   return {
     confirmations: await ctx.invoke.site.loaders.invites.list(),
   };
@@ -49,7 +52,15 @@ export default function Section(
                       type="checkbox"
                       checked={confirmation.accepted}
                       class="checkbox"
-                      disabled
+                      hx-trigger="change"
+                      hx-swap="outerHTML"
+                      hx-target="closest section"
+                      hx-post={useSection({
+                        props: {
+                          toggle: confirmation.code,
+                          accepted: !confirmation.accepted,
+                        },
+                      })}
                     />
                   </td>
                 </tr>

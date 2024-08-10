@@ -28,6 +28,17 @@ export const Invites = {
         });
         await op.commit();
     },
+    unconfirm: async (code: string) => {
+        if (!kv) {
+            return;
+        }
+        const current = await kv.get(INVITES);
+        const op = kv.atomic().check(current).set(INVITES, {
+            ...current.value ?? {},
+            [code]: false,
+        });
+        await op.commit();
+    },
     list: async (): Promise<Record<string, boolean>> => {
         if (!kv) {
             return {};
