@@ -79,6 +79,10 @@ export const loader = async (
     return { ...props, confirmed: false };
   }
   const list = await ctx.invoke.site.loaders.invites.list();
+  if (!(code in list)) {
+    await ctx.invoke.site.actions.invites.new({ code });
+    return { ...props, code, confirmed: false };
+  }
   const confirmed = list[code] === true;
   return { ...props, code, confirmed };
 };

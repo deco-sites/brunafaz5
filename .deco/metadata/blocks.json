@@ -108,5 +108,15 @@
   "/.deco/blocks/Preview%20site%2Fsections%2FInvite.tsx.json": {
     "blockType": "sections",
     "__resolveType": "site/sections/Invite.tsx"
+  },
+  "/.deco/blocks/pages-Confirmations-580410.json": {
+    "name": "Confirmations",
+    "path": "/confirmations",
+    "blockType": "pages",
+    "__resolveType": "website/pages/Page.tsx"
+  },
+  "/.deco/blocks/Preview%20%2Fsections%2FConfirmationList.tsx.json": {
+    "blockType": "sections",
+    "__resolveType": "site/sections/ConfirmationList.tsx"
   }
 }
