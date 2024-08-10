@@ -66,6 +66,43 @@ interface Props {
   accentColor?: string;
 }
 
+function Confetti() {
+  return (
+    <>
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js">
+      </script>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+var duration = 30 * 1000;
+var animationEnd = Date.now() + duration;
+var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+var interval = setInterval(function() {
+  var timeLeft = animationEnd - Date.now();
+
+  if (timeLeft <= 0) {
+    return clearInterval(interval);
+  }
+
+  var particleCount = 100 * (timeLeft / duration);
+  // since particles fall down, start a bit higher than random
+  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+  confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+}, 250);
+
+        `,
+        }}
+      >
+      </script>
+    </>
+  );
+}
 export const loader = async (
   props: Props,
   req: Request,
@@ -109,6 +146,7 @@ export default function RobloxInvite({
 }: SectionProps<typeof loader>) {
   return (
     <>
+      {confirmed && <Confetti />}
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -143,16 +181,25 @@ export default function RobloxInvite({
               </div>
             </div>
           </div>
-          <audio autoplay>
+          <audio autoplay loop>
             <source
               src={asset("/playful.mp3")}
               type="audio/mpeg"
             >
             </source>
           </audio>
+          <audio autoplay>
+            <source
+              src={asset("/happy.mp3")}
+              type="audio/mpeg"
+            >
+            </source>
+          </audio>
           <div class="space-y-4">
             <h1 style={{ color: secondaryColor }} class="text-4xl">ROBLOX</h1>
-            <p style={{ color: primaryColor }} class="text-2xl">{inviteText}</p>
+            <p style={{ color: primaryColor }} class="text-2xl">
+              {inviteText}
+            </p>
             <h2 style={{ color: primaryColor }} class="text-5xl">{name}</h2>
             <div
               style={{ backgroundColor: accentColor }}
@@ -192,7 +239,11 @@ export default function RobloxInvite({
                 Confirmar presença!
               </button>
             )}
-            {confirmed && <span>Presença confirmada!</span>}
+            {confirmed && (
+              <>
+                <span>Presença confirmada!</span>
+              </>
+            )}
           </div>
         </div>
       </div>
