@@ -7,7 +7,7 @@
       "backgroundImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/e4f88360-f95c-4f73-90d3-57482740615a",
       "coverImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/83d1e47c-2075-4d8b-a3d5-226b03c73223",
       "name": "Bruna",
-      "age": 5,
+      "age": "05",
       "googleMapsLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu",
       "location": "Casa de festa Pula Pirula - Av. Gov. Flávio Ribeiro Coutinho, 121 - PB, 58036-800",
       "dateTime": "12/10/2024 17:30",
@@ -15,7 +15,8 @@
       "primaryColor": "#ECd5E3",
       "secondaryColor": "#F3B0C3",
       "accentColor": "#D4f0f0",
-      "mapLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu"
+      "mapLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu",
+      "daughterImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/b7e8af9e-58d4-4aa8-93a6-c05ea95e2abc"
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

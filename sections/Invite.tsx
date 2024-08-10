@@ -9,6 +9,10 @@ interface Props {
    */
   coverImage?: ImageWidget;
   /**
+   * @description Daughter's picture to be displayed below the cover image
+   */
+  daughterImage?: ImageWidget;
+  /**
    * @description Invite text to be displayed below the cover image
    * @format rich-text
    */
@@ -20,7 +24,7 @@ interface Props {
   /**
    * @description Age of the birthday person
    */
-  age?: number;
+  age?: string;
   /**
    * @description Location of the event
    */
@@ -56,9 +60,10 @@ interface Props {
 export default function RobloxInvite({
   backgroundImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/6fe9404a-f69c-472a-b521-78f6c1f87326",
   coverImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
+  daughterImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
   inviteText = "Venha comemorar comigo!",
   name = "BRUNA",
-  age = 9,
+  age = "09",
   location = "PULA PIRULA",
   mapLink = "https://goo.gl/maps/example",
   date = "12 OUTUBRO",
@@ -76,8 +81,15 @@ export default function RobloxInvite({
         class="min-h-screen w-full bg-repeat overflow-y-auto relative flex flex-col items-center justify-center p-4"
         style={{ backgroundImage: `url(${backgroundImage})`, fontFamily: "'Chewy', cursive" }}
       >
-        <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-md w-full text-center">
-          <img src={coverImage} alt="Roblox characters" class="w-full h-auto mb-4 rounded-lg"/>
+        <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-md w-full text-center relative">
+          <div class="relative mb-24">
+            <img src={coverImage} alt="Roblox characters" class="w-full h-auto rounded-lg"/>
+            <div class="absolute left-1/2 transform -translate-x-1/2 translate-y-1/3 bottom-0">
+              <div class="w-64 h-64 rounded-full overflow-hidden border-8" style={{borderColor: primaryColor}}>
+                <img src={daughterImage} alt="Daughter's picture" class="w-full h-full object-cover"/>
+              </div>
+            </div>
+          </div>
           <div class="space-y-4">
             <h1 style={{color: secondaryColor}} class="text-4xl">ROBLOX</h1>
             <p style={{color: primaryColor}} class="text-2xl">{inviteText}</p>
