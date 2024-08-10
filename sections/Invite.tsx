@@ -176,7 +176,7 @@ export default function RobloxInvite({
               </p>
             </div>
             <p style={{ color: accentColor }} class="text-xl">
-              Esperamos você!
+              Esperamos você! Confirmar até o dia 25/09/2024
             </p>
             {code && !confirmed && (
               <button
