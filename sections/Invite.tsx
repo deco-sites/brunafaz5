@@ -1,5 +1,4 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
-
 interface Props {
   /**
    * @description Background image for the entire site
@@ -27,6 +26,10 @@ interface Props {
    */
   location?: string;
   /**
+   * @description Google Maps link for the event location
+   */
+  mapLink?: string;
+  /**
    * @description Date of the event
    */
   date?: string;
@@ -35,10 +38,20 @@ interface Props {
    */
   time?: string;
   /**
-   * @description Font family for the invite
-   * @default "Comic Sans MS, cursive"
+   * @description Primary color for the invite (Roblox Red)
+   * @format color-input
    */
-  fontFamily?: string;
+  primaryColor?: string;
+  /**
+   * @description Secondary color for the invite (Roblox Blue)
+   * @format color-input
+   */
+  secondaryColor?: string;
+  /**
+   * @description Accent color for the invite (Roblox Green)
+   * @format color-input
+   */
+  accentColor?: string;
 }
 export default function RobloxInvite({
   backgroundImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/6fe9404a-f69c-472a-b521-78f6c1f87326",
@@ -47,30 +60,44 @@ export default function RobloxInvite({
   name = "BRUNA",
   age = 9,
   location = "PULA PIRULA",
+  mapLink = "https://goo.gl/maps/example",
   date = "12 OUTUBRO",
   time = "17:30 ÀS 21:30",
-  fontFamily = "Comic Sans MS, cursive"
+  primaryColor = "#FF4040",
+  secondaryColor = "#00A2FF",
+  accentColor = "#00FF7F",
 }: Props) {
   return (
-    <div class="min-h-screen w-full bg-repeat overflow-y-auto relative flex flex-col items-center justify-center p-4"
-         style={{ backgroundImage: `url(${backgroundImage})`, fontFamily }}>
-      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-md w-full text-center">
-        <img src={coverImage} alt="Roblox characters" class="w-full h-auto mb-4 rounded-lg"/>
-        <div class="space-y-4">
-          <h1 class="text-blue-500 text-4xl font-bold">ROBLOX</h1>
-          <p class="text-pink-500 text-2xl font-semibold">{inviteText}</p>
-          <h2 class="text-pink-500 text-5xl font-bold">{name}</h2>
-          <div class="bg-blue-500 text-white py-2 px-4 rounded-full inline-block">
-            <span class="text-3xl font-bold">{age} ANOS</span>
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+      `}}/>
+      <div 
+        class="min-h-screen w-full bg-repeat overflow-y-auto relative flex flex-col items-center justify-center p-4"
+        style={{ backgroundImage: `url(${backgroundImage})`, fontFamily: "'Chewy', cursive" }}
+      >
+        <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-md w-full text-center">
+          <img src={coverImage} alt="Roblox characters" class="w-full h-auto mb-4 rounded-lg"/>
+          <div class="space-y-4">
+            <h1 style={{color: secondaryColor}} class="text-4xl">ROBLOX</h1>
+            <p style={{color: primaryColor}} class="text-2xl">{inviteText}</p>
+            <h2 style={{color: primaryColor}} class="text-5xl">{name}</h2>
+            <div style={{backgroundColor: accentColor}} class="text-white py-2 px-4 rounded-full inline-block">
+              <span class="text-3xl">{age} ANOS</span>
+            </div>
+            <div class="space-y-2">
+              <p style={{color: secondaryColor}}>DATA: <span style={{color: primaryColor}}>{date}</span></p>
+              <p style={{color: secondaryColor}}>LOCAL: 
+                <a href={mapLink} target="_blank" rel="noopener noreferrer" class="block">
+                  <span style={{color: primaryColor}}>{location}</span>
+                </a>
+              </p>
+              <p style={{color: secondaryColor}}>HORÁRIO: <span style={{color: primaryColor}}>{time}</span></p>
+            </div>
+            <p style={{color: accentColor}} class="text-xl">Esperamos você!</p>
           </div>
-          <div class="space-y-2">
-            <p class="text-blue-500 font-bold">DATA: <span class="text-pink-500">{date}</span></p>
-            <p class="text-blue-500 font-bold">LOCAL: <span class="text-pink-500">{location}</span></p>
-            <p class="text-blue-500 font-bold">HORÁRIO: <span class="text-pink-500">{time}</span></p>
-          </div>
-          <p class="text-pink-500 text-xl font-semibold">Esperamos você!</p>
         </div>
       </div>
-    </div>
+    </>
   );
 }

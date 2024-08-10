@@ -2,5 +2,6 @@
   "__resolveType": "site/sections/Invite.tsx",
   "backgroundImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/e4f88360-f95c-4f73-90d3-57482740615a",
   "coverImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/12178/83d1e47c-2075-4d8b-a3d5-226b03c73223",
-  "fontFamily": "Roboto"
+  "fontFamily": "Chewby",
+  "fontWeight": "100"
 }

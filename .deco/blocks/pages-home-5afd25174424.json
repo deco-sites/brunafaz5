@@ -9,9 +9,13 @@
       "name": "Bruna",
       "age": 5,
       "googleMapsLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu",
-      "location": "Av. Gov. Flávio Ribeiro Coutinho, 121 - PB, 58036-800",
+      "location": "Casa de festa Pula Pirula - Av. Gov. Flávio Ribeiro Coutinho, 121 - PB, 58036-800",
       "dateTime": "12/10/2024 17:30",
-      "content": "<p>Bruna faz 5!</p>"
+      "content": "<p>Bruna faz 5!</p>",
+      "primaryColor": "#ECd5E3",
+      "secondaryColor": "#F3B0C3",
+      "accentColor": "#D4f0f0",
+      "mapLink": "https://www.google.com/maps/place/Pula+Pirula/@-7.0998323,-34.8318753,15z/data=!4m6!3m5!1s0x7acdd0e73fb2ac1:0xed02a243ce616822!8m2!3d-7.097807!4d-34.8466682!16s%2Fg%2F1ptx6nftw?entry=ttu"
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
