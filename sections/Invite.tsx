@@ -1,4 +1,5 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
+import { asset } from "https://deno.land/x/fresh@1.6.8/runtime.ts";
 interface Props {
   /**
    * @description Background image for the entire site
@@ -58,9 +59,12 @@ interface Props {
   accentColor?: string;
 }
 export default function RobloxInvite({
-  backgroundImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/6fe9404a-f69c-472a-b521-78f6c1f87326",
-  coverImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
-  daughterImage = "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
+  backgroundImage =
+    "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/6fe9404a-f69c-472a-b521-78f6c1f87326",
+  coverImage =
+    "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
+  daughterImage =
+    "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1818/ff6bb37e-0eab-40e1-a454-86856efc278e",
   inviteText = "Venha comemorar comigo!",
   name = "BRUNA",
   age = "09",
@@ -74,39 +78,79 @@ export default function RobloxInvite({
 }: Props) {
   return (
     <>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-      `}}/>
-      <div 
+      `,
+        }}
+      />
+      <div
         class="min-h-screen w-full bg-repeat overflow-y-auto relative flex flex-col items-center justify-center p-4"
-        style={{ backgroundImage: `url(${backgroundImage})`, fontFamily: "'Chewy', cursive" }}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          fontFamily: "'Chewy', cursive",
+        }}
       >
         <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-md w-full text-center relative">
           <div class="relative mb-24">
-            <img src={coverImage} alt="Roblox characters" class="w-full h-auto rounded-lg"/>
+            <img
+              src={coverImage}
+              alt="Roblox characters"
+              class="w-full h-auto rounded-lg"
+            />
             <div class="absolute left-1/2 transform -translate-x-1/2 translate-y-1/3 bottom-0">
-              <div class="w-64 h-64 rounded-full overflow-hidden border-8" style={{borderColor: primaryColor}}>
-                <img src={daughterImage} alt="Daughter's picture" class="w-full h-full object-cover"/>
+              <div
+                class="w-64 h-64 rounded-full overflow-hidden border-8"
+                style={{ borderColor: primaryColor }}
+              >
+                <img
+                  src={daughterImage}
+                  alt="Daughter's picture"
+                  class="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
+          <audio autoplay>
+            <source
+              src={asset("/playful.mp3")}
+              type="audio/mpeg"
+            >
+            </source>
+          </audio>
           <div class="space-y-4">
-            <h1 style={{color: secondaryColor}} class="text-4xl">ROBLOX</h1>
-            <p style={{color: primaryColor}} class="text-2xl">{inviteText}</p>
-            <h2 style={{color: primaryColor}} class="text-5xl">{name}</h2>
-            <div style={{backgroundColor: accentColor}} class="text-white py-2 px-4 rounded-full inline-block">
+            <h1 style={{ color: secondaryColor }} class="text-4xl">ROBLOX</h1>
+            <p style={{ color: primaryColor }} class="text-2xl">{inviteText}</p>
+            <h2 style={{ color: primaryColor }} class="text-5xl">{name}</h2>
+            <div
+              style={{ backgroundColor: accentColor }}
+              class="text-white py-2 px-4 rounded-full inline-block"
+            >
               <span class="text-3xl">{age} ANOS</span>
             </div>
             <div class="space-y-2">
-              <p style={{color: secondaryColor}}>DATA: <span style={{color: primaryColor}}>{date}</span></p>
-              <p style={{color: secondaryColor}}>LOCAL: 
-                <a href={mapLink} target="_blank" rel="noopener noreferrer" class="block">
-                  <span style={{color: primaryColor}}>{location}</span>
+              <p style={{ color: secondaryColor }}>
+                DATA: <span style={{ color: primaryColor }}>{date}</span>
+              </p>
+              <p style={{ color: secondaryColor }}>
+                LOCAL:
+                <a
+                  href={mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block"
+                >
+                  <span style={{ color: primaryColor }}>{location}</span>
                 </a>
               </p>
-              <p style={{color: secondaryColor}}>HORÁRIO: <span style={{color: primaryColor}}>{time}</span></p>
+              <p style={{ color: secondaryColor }}>
+                HORÁRIO: <span style={{ color: primaryColor }}>{time}</span>
+              </p>
             </div>
-            <p style={{color: accentColor}} class="text-xl">Esperamos você!</p>
+            <p style={{ color: accentColor }} class="text-xl">
+              Esperamos você!
+            </p>
           </div>
         </div>
       </div>
