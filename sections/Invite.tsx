@@ -235,14 +235,6 @@ export default function RobloxInvite({
                 <p style={{ color: accentColor }} class="text-xl">
                   Esperamos você! Confirmar até o dia 25/09/2024
                 </p>
-                {code && (
-                  <p style={{ color: secondaryColor, fontSize: "10px" }}>
-                    * Para melhor organização está programado que cada criança
-                    poderá ser acompanhada por um adulto, caso precise trazer
-                    mais alguém, por favor avise-nos com antecedência.
-                    Agradecemos a compreensão.
-                  </p>
-                )}
               </>
             )}
             {code && !confirmed && (
@@ -294,6 +286,11 @@ export default function RobloxInvite({
                 <span>Presença confirmada!</span>
               </>
             )}
+            <p style={{ color: secondaryColor, fontSize: "10px" }}>
+              * Para melhor organização está programado que cada criança poderá
+              ser acompanhada por um adulto, caso precise trazer mais alguém,
+              por favor avise-nos com antecedência. Agradecemos a compreensão.
+            </p>
           </div>
         </div>
       </div>
