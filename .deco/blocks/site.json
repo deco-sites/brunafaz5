@@ -1,14 +1,12 @@
 {
   "seo": {
     "type": "website",
-    "title": "Landing",
+    "title": "Bruna faz 5",
     "jsonLDs": [],
     "noIndexing": false,
-    "description": "Improve your page performance with deco.cx",
-    "titleTemplate": "Landing | deco.cx",
-    "descriptionTemplate": "%s | Deco.cx",
-    "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4763/0fba8a8c-ee79-47e1-8f9d-863658d056cc",
-    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4763/1350f37f-88ab-4cf1-bcf6-c386bcf8b238"
+    "description": "Venha comemorar conosco!",
+    "titleTemplate": "Bruna faz 5",
+    "descriptionTemplate": "%s"
   },
   "global": [
     {
