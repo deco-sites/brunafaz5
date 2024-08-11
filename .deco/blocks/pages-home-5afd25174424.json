@@ -21,6 +21,11 @@
   ],
   "__resolveType": "website/pages/Page.tsx",
   "seo": {
-    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+    "__resolveType": "website/sections/Seo/SeoV2.tsx",
+    "type": "website",
+    "title": "Bruna faz 5",
+    "description": "Venha comemorar conosco!",
+    "favicon": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg",
+    "image": ""
   }
 }

@@ -221,6 +221,7 @@ export default function RobloxInvite({
                   target="_blank"
                   rel="noopener noreferrer"
                   class="block"
+                  style={{ textDecoration: "underline" }}
                 >
                   <span style={{ color: primaryColor }}>{location}</span>
                 </a>
@@ -229,17 +230,63 @@ export default function RobloxInvite({
                 HORÁRIO: <span style={{ color: primaryColor }}>{time}</span>
               </p>
             </div>
-            <p style={{ color: accentColor }} class="text-xl">
-              Esperamos você! Confirmar até o dia 25/09/2024
-            </p>
+            {!confirmed && (
+              <>
+                <p style={{ color: accentColor }} class="text-xl">
+                  Esperamos você! Confirmar até o dia 25/09/2024
+                </p>
+                {code && (
+                  <p style={{ color: secondaryColor, fontSize: "10px" }}>
+                    * Para melhor organização está programado que cada criança
+                    poderá ser acompanhada por um adulto, caso precise trazer
+                    mais alguém, por favor avise-nos com antecedência.
+                    Agradecemos a compreensão.
+                  </p>
+                )}
+              </>
+            )}
             {code && !confirmed && (
               <button
-                class="btn btn-primary"
+                class="btn btn-primary animate-pulse relative overflow-hidden mx-auto"
                 hx-post={useSection({ props: { confirm: true } })}
                 hx-swap="outerHTML"
                 hx-target="closest section"
+                style={{
+                  background:
+                    `linear-gradient(45deg, ${primaryColor}, ${secondaryColor}, ${accentColor})`,
+                }}
               >
-                Confirmar presença!
+                <div class="absolute inset-0 bg-white opacity-50 animate-ping">
+                </div>
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    >
+                    </path>
+                  </svg>
+                  Confirmar presença!
+                  <svg
+                    class="w-6 h-6 ml-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    >
+                    </path>
+                  </svg>
+                </div>
               </button>
             )}
             {confirmed && (
@@ -250,6 +297,21 @@ export default function RobloxInvite({
           </div>
         </div>
       </div>
+      <style>
+        {`
+            @keyframes gradient {
+               background-position: 0}
+            @keyframes pulse {
+              
+                opacity: 1;
+                transform: scale(1);
+              }
+                opacity: 0.8;
+                transform: scale(1.05);
+              }
+            }
+          `}
+      </style>
     </>
   );
 }
